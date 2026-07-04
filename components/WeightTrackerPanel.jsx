@@ -68,12 +68,12 @@ export default function WeightTrackerPanel({ user }) {
   };
 
   return (
-    <div className="bg-white rounded-2xl border-2 border-pink-100 p-3.5 shadow-sm space-y-3.5 animate-fadeIn relative overflow-hidden">
+    <div className="bg-white rounded-2xl border-2 border-slate-200/60 p-3.5 shadow-sm space-y-3.5 animate-fadeIn relative overflow-hidden">
       <div className="absolute -right-2 -bottom-2 text-4xl opacity-5 pointer-events-none select-none">
         ⚖️
       </div>
       <div className="flex items-center gap-2">
-        <div className="w-7 h-7 rounded-lg bg-pink-50 flex items-center justify-center text-xs animate-pulse">
+        <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-xs animate-pulse">
           ⚖️
         </div>
         <div>
@@ -91,18 +91,18 @@ export default function WeightTrackerPanel({ user }) {
             value={weight}
             onChange={(e) => setWeight(e.target.value)}
             placeholder="Timbangan baru (kg)..."
-            className="w-full pl-3 pr-10 py-1.5 rounded-lg border-2 border-pink-150 bg-white text-xs text-slate-800
-              focus:outline-none focus:border-pink-400 focus:ring-1 focus:ring-pink-50 transition-all font-bold shadow-inner"
+            className="w-full pl-3 pr-10 py-1.5 rounded-lg border-2 border-slate-200 bg-white text-xs text-slate-800
+              focus:outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-100 transition-all font-bold shadow-inner"
             required
             disabled={submitting}
           />
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] font-extrabold text-pink-400">kg</span>
+          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] font-extrabold text-slate-400">kg</span>
         </div>
         <button
           type="submit"
           disabled={submitting || !weight}
-          className="px-3 py-1.5 rounded-lg text-white font-extrabold text-xs bg-gradient-to-r from-pink-500 to-rose-400 hover:shadow-md
-            transition-all flex items-center gap-1 cursor-pointer disabled:bg-slate-200"
+          className={`px-3 py-1.5 rounded-lg text-white font-extrabold text-xs bg-gradient-to-r ${user.color} hover:shadow-md
+            transition-all flex items-center gap-1 cursor-pointer disabled:bg-slate-200`}
         >
           {submitting ? (
             <Loader2 size={10} className="animate-spin" />
@@ -124,14 +124,14 @@ export default function WeightTrackerPanel({ user }) {
         
         {loading ? (
           <div className="text-center py-2">
-            <Loader2 size={12} className="animate-spin text-pink-500 mx-auto" />
+            <Loader2 size={12} className="animate-spin text-slate-500 mx-auto" />
           </div>
         ) : logs.length === 0 ? (
           <div className="text-center py-4 bg-slate-50 rounded-xl border border-slate-100">
             <p className="text-[10px] text-slate-450 font-bold">Belum ada timbangan tercatat 🌸</p>
           </div>
         ) : (
-          <div className="divide-y divide-pink-50 max-h-36 overflow-y-auto pr-1">
+          <div className="divide-y divide-slate-100 max-h-36 overflow-y-auto pr-1">
             {logs.map((log, index) => {
               const prevLog = logs[index + 1];
               let delta = null;
@@ -160,7 +160,7 @@ export default function WeightTrackerPanel({ user }) {
                           {delta.toFixed(1)} kg 🍃
                         </span>
                       ) : (
-                        <span className="inline-flex items-center gap-0.5 text-[8px] font-bold text-slate-500 bg-slate-50 px-1 py-0.5 rounded-md border border-slate-100">
+                        <span className="inline-flex items-center gap-0.5 text-[8px] font-bold text-slate-555 bg-slate-50 px-1 py-0.5 rounded-md border border-slate-100">
                           <Minus size={6} />
                           Tetap ⚖️
                         </span>

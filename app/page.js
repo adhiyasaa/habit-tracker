@@ -156,26 +156,30 @@ export default function Home() {
 
   if (!mounted) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
+      <div className="min-h-screen flex items-center justify-center bg-slate-950">
         <div className="text-center">
           <div className="text-4xl mb-2 animate-bounce">💑</div>
-          <p className="text-muted text-[10px] font-semibold animate-pulse">Sabar ya, lagi disiapin dulu... ✨</p>
+          <p className="text-slate-400 text-[10px] font-semibold animate-pulse">Sabar ya, lagi disiapin dulu... ✨</p>
         </div>
       </div>
     );
   }
 
-  // PASSWORD GATE VIEW (Enlarged Mascots)
+  // PASSWORD GATE VIEW (Sleek Dark Premium Mode Theme)
   if (view === "gate") {
     return (
-      <div className="min-h-screen bg-gradient-to-tr from-pink-100 via-rose-50 to-blue-100 flex flex-col justify-center items-center p-4 relative overflow-hidden select-none">
+      <div className="min-h-screen bg-slate-955 text-slate-100 flex flex-col justify-center items-center p-4 relative overflow-hidden select-none">
         
-        {/* Floating Heart & Emojis Background */}
+        {/* Sleek Radial Glows */}
+        <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-teal-500 rounded-full mix-blend-screen filter blur-[120px] opacity-15 pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-indigo-500 rounded-full mix-blend-screen filter blur-[120px] opacity-15 pointer-events-none" />
+
+        {/* Floating Motivation/Habit Emojis */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {[...Array(15)].map((_, i) => (
             <span
               key={i}
-              className="absolute text-2xl opacity-20 animate-bounce"
+              className="absolute text-xl opacity-10 animate-bounce"
               style={{
                 left: `${(i * 7) % 100}%`,
                 top: `${(i * 13) % 80 + 10}%`,
@@ -183,25 +187,25 @@ export default function Home() {
                 animationDuration: `${3 + (i % 3)}s`,
               }}
             >
-              {["💖", "🌸", "🥰", "✨", "💕", "🧸", "🐱", "🐶", "🌟", "🌹", "🎈"][i % 11]}
+              {["⚡", "🔥", "🎯", "🏆", "💪", "🏃", "💧", "🛌", "🌟", "📅"][i % 10]}
             </span>
           ))}
         </div>
 
-        {/* Lock Card */}
-        <div className="relative z-10 max-w-sm w-full bg-white/80 backdrop-blur-md rounded-3xl border border-white/50 p-7 shadow-xl text-center space-y-5 animate-scaleIn">
+        {/* Lock Card (Dark Glassmorphism) */}
+        <div className="relative z-10 max-w-sm w-full bg-slate-900/80 backdrop-blur-md rounded-3xl border border-slate-800 p-7 shadow-2xl text-center space-y-5 animate-scaleIn">
           <div className="space-y-2">
-            {/* Mascot Emojis (Enlarged to text-6xl) */}
+            {/* Mascot Emojis */}
             <div className="flex justify-center items-center gap-3 text-6xl mb-2 drop-shadow-sm">
               <span className="animate-wiggle">🐼</span>
-              <span className="text-3xl text-rose-450 animate-pulse">❤️</span>
+              <span className="text-3xl text-rose-500 animate-pulse">❤️</span>
               <span className="animate-wiggle-reverse">🐻</span>
             </div>
-            <h1 className="text-lg font-black bg-gradient-to-r from-pink-500 via-rose-500 to-indigo-600 bg-clip-text text-transparent">
-              Jurnal Rahasia Picil & Bebe 🔐🌸
+            <h1 className="text-lg font-black bg-gradient-to-r from-teal-400 via-indigo-400 to-indigo-500 bg-clip-text text-transparent">
+              Tsalysa and Dias's Daily Activity Journey 🔐
             </h1>
-            <p className="text-[10px] text-slate-500 font-bold leading-relaxed max-w-xs mx-auto">
-              Jurnal ini digembok agar kenangan kita tetap aman. Masukkan password rahasia untuk masuk!
+            <p className="text-[10px] text-slate-400 font-bold leading-relaxed max-w-xs mx-auto">
+              Enter Sceret Code
             </p>
           </div>
 
@@ -212,12 +216,12 @@ export default function Home() {
                 value={passwordInput}
                 onChange={(e) => setPasswordInput(e.target.value)}
                 placeholder="Password rahasia kita..."
-                className="w-full px-4 py-2.5 rounded-xl border-2 border-pink-100 bg-white text-xs text-slate-800 text-center font-bold tracking-widest
-                  placeholder:tracking-normal placeholder:font-medium placeholder:text-slate-400 focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-50 transition-all shadow-inner"
+                className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-800 bg-slate-950 text-slate-100 text-center font-bold tracking-widest
+                  placeholder:tracking-normal placeholder:font-medium placeholder:text-slate-500 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-950 transition-all shadow-inner"
                 required
               />
               {passwordError && (
-                <p className="text-[9px] text-rose-500 font-extrabold animate-shake mt-1">
+                <p className="text-[9px] text-rose-450 font-extrabold animate-shake mt-1">
                   Kunci salah! Coba ingat sandi rahasia kita... 🥺
                 </p>
               )}
@@ -225,7 +229,7 @@ export default function Home() {
 
             <button
               type="submit"
-              className="w-full py-2.5 rounded-xl text-white font-extrabold text-xs bg-gradient-to-r from-pink-500 to-rose-400 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-98 transition-all duration-200 cursor-pointer animate-pulseGlow"
+              className="w-full py-2.5 rounded-xl text-white font-extrabold text-xs bg-gradient-to-r from-teal-500 to-indigo-650 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-98 transition-all duration-200 cursor-pointer animate-pulseGlow"
             >
               Buka Jurnal Cinta ✨🔑
             </button>
@@ -235,100 +239,104 @@ export default function Home() {
     );
   }
 
-  // Welcome Screen / Home Page (Enlarged Mascots)
+  // Welcome Screen / Home Page (Sleek Dark Premium Mode Theme)
   if (view === "welcome") {
     const tsalysaPoints = stats["tsalysa"]?.totalPoints || 0;
     const diasPoints = stats["dias"]?.totalPoints || 0;
 
     return (
-      <div className="min-h-screen bg-gradient-to-tr from-pink-100 via-rose-50 to-blue-100 flex flex-col justify-between p-4 relative overflow-hidden select-none">
+      <div className="min-h-screen bg-slate-955 text-slate-100 flex flex-col justify-between p-4 relative overflow-hidden select-none">
         
-        {/* Floating Heart & Emojis Background */}
+        {/* Sleek Radial Glows */}
+        <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-teal-500 rounded-full mix-blend-screen filter blur-[120px] opacity-15 pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-indigo-500 rounded-full mix-blend-screen filter blur-[120px] opacity-15 pointer-events-none" />
+
+        {/* Floating Motivation/Habit Emojis */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {[...Array(18)].map((_, i) => (
             <span
               key={i}
-              className="absolute text-2xl opacity-20 animate-bounce"
+              className="absolute text-xl opacity-10 animate-bounce"
               style={{
                 left: `${(i * 6) % 100}%`,
                 top: `${(i * 14) % 80 + 10}%`,
                 animationDelay: `${i * 0.2}s`,
-                animationDuration: `${2.5 + (i % 3)}s`,
+                animationDuration: `${2.5 + (i % 3.5)}s`,
               }}
             >
-              {["💖", "🌸", "🥰", "✨", "💕", "🧸", "🐱", "🐶", "🎈", "🌟", "🌹", "🍓"][i % 12]}
+              {["⚡", "🔥", "🎯", "🏆", "💪", "🏃", "💧", "🛌", "🌟", "📅"][i % 10]}
             </span>
           ))}
         </div>
 
         {/* Top Tagline */}
         <div className="relative z-10 text-center pt-2 flex justify-between items-center max-w-sm mx-auto w-full">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/70 backdrop-blur-md border border-white/50 shadow-sm text-[10px] font-bold text-rose-500 mx-auto">
-            <span>✨ Jurnal Rahasia Picil & Bebe ✨</span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 shadow-sm text-[10px] font-bold text-teal-400 mx-auto">
+            <span>✨ Tsalysa and Dias's Daily Activity Journey ✨</span>
           </div>
           
           <button
             onClick={handleLock}
-            className="p-1.5 rounded-xl bg-white/60 backdrop-blur-md border border-white/40 text-slate-400 hover:text-rose-500 transition-colors cursor-pointer absolute right-2"
+            className="p-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-rose-500 transition-colors cursor-pointer absolute right-2"
             title="Kunci jurnal"
           >
             <Lock size={12} />
           </button>
         </div>
 
-        {/* Welcome Card (Enlarged Mascots) */}
-        <div className="relative z-10 max-w-xs mx-auto w-full bg-white/75 backdrop-blur-md rounded-3xl border border-white/50 p-6 shadow-xl text-center space-y-5 my-auto animate-scaleIn">
+        {/* Welcome Card (Sleek Dark Glassmorphism) */}
+        <div className="relative z-10 max-w-xs mx-auto w-full bg-slate-900/80 backdrop-blur-md rounded-3xl border border-slate-800 p-6 shadow-2xl text-center space-y-5 my-auto animate-scaleIn">
           <div className="space-y-2">
-            {/* Mascot Emojis (Enlarged to text-6xl) */}
+            {/* Mascot Emojis */}
             <div className="flex justify-center items-center gap-3 text-6xl drop-shadow-sm">
               <span className="animate-wiggle cursor-pointer" title="Panda Bebe">🐼</span>
-              <span className="text-3xl text-rose-455 animate-pulse">❤️</span>
+              <span className="text-2xl text-rose-500 animate-pulse">❤️</span>
               <span className="animate-wiggle-reverse cursor-pointer" title="Bear Picil">🐻</span>
             </div>
-            <h1 className="text-xl font-black tracking-tight bg-gradient-to-r from-pink-500 via-rose-500 to-indigo-600 bg-clip-text text-transparent leading-tight">
+            <h1 className="text-xl font-black tracking-tight bg-gradient-to-r from-teal-400 via-indigo-400 to-indigo-500 bg-clip-text text-transparent leading-tight">
               Couple Habit Tracker 💖
             </h1>
-            <p className="text-slate-500 text-[10px] font-bold leading-relaxed max-w-xs mx-auto">
-              Tempat rahasia kita buat saling dukung hidup sehat! Catat kegiatan harian, kumpulin poin cinta, dan kejar reward mingguan! 🥰🌸
+            <p className="text-slate-400 text-[10px] font-bold leading-relaxed max-w-xs mx-auto">
+              Tempat rahasia kita buat saling dukung hidup sehat! Catat kegiatan harian, kumpulin poin, dan kejar reward mingguan! 🥰🌸
             </p>
           </div>
 
           {/* Mini Scoreboard (Weekly & Lifetime) */}
-          <div className="grid grid-cols-2 gap-2 p-3.5 rounded-2xl bg-white/80 border border-white/50 shadow-sm relative overflow-hidden">
+          <div className="grid grid-cols-2 gap-2 p-3.5 rounded-2xl bg-slate-950/80 border border-slate-800 shadow-sm relative overflow-hidden">
             <div className="text-center space-y-0.5">
               <p className="text-[9px] font-extrabold text-slate-400 uppercase tracking-wider">👩 Picil</p>
-              <p className="text-[8px] font-bold text-slate-400 leading-none">Pekan / All-Time</p>
-              <p className="text-xs font-black text-rose-555 mt-1">
-                {tsalysaPoints}p <span className="text-slate-405 font-bold text-[9px]">/ {stats["tsalysa"]?.allTimePoints || 0}p</span>
+              <p className="text-[8px] font-bold text-slate-500 leading-none">Pekan / All-Time</p>
+              <p className="text-xs font-black text-teal-400 mt-1">
+                {tsalysaPoints}p <span className="text-slate-500 font-bold text-[9px]">/ {stats["tsalysa"]?.allTimePoints || 0}p</span>
               </p>
             </div>
             <div className="text-center space-y-0.5">
               <p className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">👨 Bebe</p>
-              <p className="text-[8px] font-bold text-slate-400 leading-none">Pekan / All-Time</p>
-              <p className="text-xs font-black text-indigo-555 mt-1">
-                {diasPoints}p <span className="text-slate-405 font-bold text-[9px]">/ {stats["dias"]?.allTimePoints || 0}p</span>
+              <p className="text-[8px] font-bold text-slate-500 leading-none">Pekan / All-Time</p>
+              <p className="text-xs font-black text-indigo-400 mt-1">
+                {diasPoints}p <span className="text-slate-500 font-bold text-[9px]">/ {stats["dias"]?.allTimePoints || 0}p</span>
               </p>
             </div>
-            <div className="absolute top-1/4 bottom-1/4 left-1/2 w-px bg-slate-200" />
+            <div className="absolute top-1/4 bottom-1/4 left-1/2 w-px bg-slate-800" />
           </div>
 
           <button
             onClick={() => setView("tracker")}
-            className="w-full py-3 rounded-2xl text-white font-extrabold text-xs bg-gradient-to-r from-pink-500 to-rose-400 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-98 transition-all duration-200 cursor-pointer animate-pulseGlow"
+            className="w-full py-3 rounded-2xl text-white font-extrabold text-xs bg-gradient-to-r from-teal-500 to-indigo-650 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-98 transition-all duration-200 cursor-pointer animate-pulseGlow"
           >
-            Masuk ke Jurnal Kita! 🚀💖
+            Masuk ke Jurnal Kita! 🚀
           </button>
         </div>
 
         {/* Footer */}
-        <div className="relative z-10 text-center text-[8px] text-rose-455 font-bold pb-1">
-          Made by your smartass BF 💕
+        <div className="relative z-10 text-center text-[8px] text-teal-500 font-bold pb-1">
+          Made with full of love by your smartass bf
         </div>
       </div>
     );
-  }   
+  }
 
-  // Habit Tracker Dashboard View (Festive & Compact with Enlarged Emojis)
+  // Habit Tracker Dashboard View (Sleek Clean Light View with Teal/Indigo Aksen)
   return (
     <div className="min-h-screen bg-background flex flex-col relative">
       
@@ -345,13 +353,13 @@ export default function Home() {
       </div>
 
       {/* Header (Compact) */}
-      <header className="sticky top-0 z-40 glass border-b border-white/20">
+      <header className="sticky top-0 z-40 glass border-b border-slate-200/50">
         <div className="max-w-2xl mx-auto px-4 py-2.5">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setView("welcome")}
-                className="p-1.5 rounded-xl border border-pink-100 bg-pink-50/55 text-rose-500 hover:bg-pink-50 transition-colors cursor-pointer"
+                className="p-1.5 rounded-xl border border-slate-200 text-slate-500 hover:bg-slate-50 transition-colors cursor-pointer"
                 title="Kembali ke halaman utama"
               >
                 <ArrowLeft size={12} />
@@ -370,7 +378,7 @@ export default function Home() {
             <div className="flex items-center gap-1.5">
               <button
                 onClick={handleLock}
-                className="p-1.5 rounded-xl border border-slate-200 text-slate-450 hover:bg-slate-50 transition-colors cursor-pointer"
+                className="p-1.5 rounded-xl border border-slate-200 text-slate-455 hover:bg-slate-50 transition-colors cursor-pointer"
                 title="Kunci jurnal"
               >
                 <Lock size={12} />
@@ -388,7 +396,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Tab Navigation (Enlarged Emojis to text-2xl & stacked layout) */}
+      {/* Tab Navigation (Enlarged Emojis & Clean Teal/Indigo colors) */}
       <div className="sticky top-[47px] z-30 bg-background border-b border-card-border">
         <div className="max-w-2xl mx-auto px-4">
           <div className="flex">
@@ -401,10 +409,9 @@ export default function Home() {
                   onClick={() => setActiveTab(user.id)}
                   className={`
                     flex-1 py-2.5 px-3 text-center transition-all relative cursor-pointer
-                    ${isActive ? "text-slate-800 font-black" : "text-slate-450 font-bold hover:text-slate-700"}
+                    ${isActive ? "text-slate-850 font-black" : "text-slate-450 font-bold hover:text-slate-705"}
                   `}
                 >
-                  {/* Enlarged Emoji to text-2xl */}
                   <span className="text-2xl block">{user.emoji}</span>
                   <span className="text-[10px] font-extrabold uppercase tracking-wider block mt-1">
                     {user.name}
@@ -412,7 +419,7 @@ export default function Home() {
                   {userStats && (
                     <span className={`
                       mt-1.5 text-[8px] px-2 py-0.5 rounded-full font-extrabold inline-flex items-center gap-0.5
-                      ${isActive ? "bg-accent-light text-accent border border-accent/15" : "bg-slate-100 text-slate-400 border border-slate-200/50"}
+                      ${isActive ? "bg-slate-100 text-slate-800 border border-slate-200" : "bg-slate-50 text-slate-400 border border-slate-200/50"}
                     `}>
                       <span>{userStats.totalPoints}p</span>
                       <span className="opacity-55 font-bold">({userStats.allTimePoints}p)</span>
@@ -432,21 +439,21 @@ export default function Home() {
       <main className="flex-1 max-w-2xl mx-auto w-full px-4 py-4 pb-20 space-y-3.5">
         <div className="animate-fadeIn animate-duration-200 space-y-3.5" key={activeTab}>
           
-          {/* Incoming Love Affirmation Card (Gelembung Chat Romantis) */}
+          {/* Incoming Love Affirmation Card (Sleek Amber Theme Message Box) */}
           {incomingAffirmation && (
-            <div className="bg-rose-50/70 border-2 border-rose-200/50 rounded-2xl p-3 flex items-start gap-2.5 animate-fadeIn relative overflow-hidden shadow-sm">
-              <div className="absolute -right-2 -bottom-2 text-6xl opacity-10 pointer-events-none select-none">
+            <div className="bg-amber-50/60 border border-amber-250/70 rounded-2xl p-3.5 flex items-start gap-2.5 animate-fadeIn relative overflow-hidden shadow-sm text-slate-800">
+              <div className="absolute -right-2 -bottom-2 text-6xl opacity-5 pointer-events-none select-none">
                 💖
               </div>
-              <div className="w-7 h-7 rounded-lg bg-rose-100/80 flex items-center justify-center text-sm shrink-0">
+              <div className="w-7 h-7 rounded-lg bg-amber-100 flex items-center justify-center text-sm shrink-0">
                 💌
               </div>
               <div className="space-y-0.5 flex-1 min-w-0">
-                <p className="text-[8px] font-extrabold text-rose-500 uppercase tracking-wider flex items-center gap-1">
+                <p className="text-[8px] font-extrabold text-amber-600 uppercase tracking-wider flex items-center gap-1">
                   <span>Pesan Cinta dari {otherUser.name} Hari Ini</span>
                   <span className="animate-bounce">✨</span>
                 </p>
-                <p className="text-xs font-extrabold text-slate-700 leading-relaxed italic break-words">
+                <p className="text-xs font-bold text-slate-700 leading-relaxed italic break-words">
                   "{incomingAffirmation.notes}"
                 </p>
               </div>
@@ -462,7 +469,7 @@ export default function Home() {
           {/* Divider */}
           <div className="flex items-center gap-2 py-1">
             <div className="flex-1 h-px bg-card-border" />
-            <span className="text-[8px] font-extrabold text-slate-400 uppercase tracking-wider px-1 flex items-center gap-1">
+            <span className="text-[8px] font-extrabold text-slate-450 uppercase tracking-wider px-1 flex items-center gap-1">
               🌸 Aktivitas {activeNickCap} 🌸
             </span>
             <div className="flex-1 h-px bg-card-border" />
@@ -477,21 +484,21 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Floating Circular Action Button: Send Love Affirmation (Scroll-following & Enlarged to w-12 h-12) */}
+      {/* Floating Circular Action Button: Send Love Affirmation (Amber/Orange Theme) */}
       <div className="fixed bottom-[84px] right-4 z-40 sm:right-8 group flex flex-col items-center">
-        <span className="bg-slate-800 text-white text-[8px] font-extrabold px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity mb-1.5 uppercase tracking-wider shadow-md pointer-events-none whitespace-nowrap border border-slate-700">
+        <span className="bg-slate-850 text-white text-[8px] font-extrabold px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity mb-1.5 uppercase tracking-wider shadow-md pointer-events-none whitespace-nowrap border border-slate-700">
           Kirim Afirmasi Cinta 💌
         </span>
         <button
           onClick={() => setShowAffirmationModal(true)}
-          className="w-12 h-12 rounded-full bg-gradient-to-tr from-pink-500 to-rose-400 text-white flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all cursor-pointer border-2 border-white/80 animate-pulse"
+          className="w-12 h-12 rounded-full bg-gradient-to-tr from-orange-500 to-amber-500 text-white flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all cursor-pointer border-2 border-white/80 animate-pulse"
           title="Send Love Affirmation Today"
         >
           <Heart size={20} className="fill-white" />
         </button>
       </div>
 
-      {/* Floating Action Button: Add Activity (Enlarged padding) */}
+      {/* Floating Action Button: Add Activity (Teal/Blue active theme) */}
       <div className="fixed bottom-4 left-0 right-0 z-40 flex justify-center">
         <button
           onClick={() => setShowModal(true)}
@@ -520,11 +527,11 @@ export default function Home() {
       {showAffirmationModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center modal-overlay animate-fadeIn" onClick={() => setShowAffirmationModal(false)}>
           <div
-            className="w-full max-w-sm mx-4 bg-white rounded-2xl shadow-2xl animate-scaleIn border border-pink-100 overflow-hidden"
+            className="w-full max-w-sm mx-4 bg-white rounded-2xl shadow-2xl animate-scaleIn border border-amber-205 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="px-5 py-4 bg-gradient-to-r from-pink-500 to-rose-450 text-white flex items-center justify-between">
+            <div className="px-5 py-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white flex items-center justify-between">
               <div>
                 <h3 className="font-extrabold text-xs uppercase tracking-wider flex items-center gap-1">
                   <span>Kirim Afirmasi Cinta</span> 
@@ -548,15 +555,15 @@ export default function Home() {
                   value={affirmationText}
                   onChange={(e) => setAffirmationText(e.target.value)}
                   maxLength={200}
-                  placeholder={`ex: Semangat beraktivitas hari ini ${otherUser.nickname} sayang! Jangan lupa makan yaa... 🥰`}
+                  placeholder={`cth: Semangat kuliahnya hari ini ${otherUser.nickname} sayang! Jangan lupa makan siang yaa... 🥰`}
                   rows={3}
                   required
-                  className="w-full px-3 py-2 rounded-xl border-2 border-pink-100 bg-white text-xs text-slate-800
-                    placeholder:text-slate-400 focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-50
+                  className="w-full px-3 py-2 rounded-xl border-2 border-amber-100 bg-white text-xs text-slate-800
+                    placeholder:text-slate-400 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-50
                     transition-all resize-none font-bold leading-relaxed shadow-inner"
                 />
                 <div className="flex justify-between text-[8px] font-bold text-slate-400 px-1">
-                  <span>Mendapatkan +5 Poin</span>
+                  <span>Mendapatkan +3 Poin</span>
                   <span>{affirmationText.length}/200</span>
                 </div>
               </div>
@@ -564,7 +571,7 @@ export default function Home() {
               <button
                 type="submit"
                 disabled={submittingAffirmation || !affirmationText.trim()}
-                className="w-full py-2 rounded-xl text-white font-extrabold text-xs bg-gradient-to-r from-pink-500 to-rose-455 hover:shadow-lg disabled:bg-slate-200 transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-md animate-pulseGlow"
+                className="w-full py-2 rounded-xl text-white font-extrabold text-xs bg-gradient-to-r from-orange-500 to-amber-500 hover:shadow-lg disabled:bg-slate-200 transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-md animate-pulseGlow"
               >
                 {submittingAffirmation ? (
                   <Loader2 size={12} className="animate-spin" />

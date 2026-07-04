@@ -20,7 +20,7 @@ export default function WeeklyStatsPanel({ stats, user }) {
         className={`
           relative overflow-hidden rounded-2xl p-3.5 text-white shadow-md transition-all duration-300
           ${rewardEligible
-            ? "bg-gradient-to-br from-amber-400 via-orange-500 to-rose-500 scale-[1.01]"
+            ? "bg-gradient-to-br from-teal-500 via-emerald-500 to-indigo-600 scale-[1.01]"
             : "bg-gradient-to-br from-slate-700 via-slate-650 to-slate-700"
           }
         `}
@@ -64,23 +64,23 @@ export default function WeeklyStatsPanel({ stats, user }) {
         </div>
       </div>
 
-      {/* Points Card (Festive) */}
-      <div className="bg-white rounded-2xl border border-pink-100 p-3.5 shadow-sm relative overflow-hidden">
+      {/* Points Card (Sleek Emerald-Teal-Indigo Progress) */}
+      <div className="bg-white rounded-2xl border border-slate-200/60 p-3.5 shadow-sm relative overflow-hidden">
         <div className="absolute -right-2 -bottom-2 text-4xl opacity-5 pointer-events-none select-none">
           ✨
         </div>
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-pink-50 flex items-center justify-center text-xs">
-              💖
+            <div className="w-7 h-7 rounded-lg bg-teal-50 flex items-center justify-center text-xs text-teal-600 font-extrabold">
+              📈
             </div>
-            <span className="font-bold text-[10px] text-slate-700 uppercase tracking-wider">💖 Poin Cinta Pekan Ini 💖</span>
+            <span className="font-bold text-[10px] text-slate-700 uppercase tracking-wider">Weekly Score</span>
           </div>
-          <span className="text-base font-black text-rose-500 animate-pulse">{totalPoints}</span>
+          <span className="text-base font-black text-teal-650 animate-pulse">{totalPoints}</span>
         </div>
         <div className="h-2 rounded-full bg-slate-100 overflow-hidden border border-slate-100">
           <div
-            className="h-full rounded-full bg-gradient-to-r from-pink-400 via-rose-500 to-amber-400 progress-bar-fill"
+            className="h-full rounded-full bg-gradient-to-r from-teal-400 via-emerald-500 to-indigo-500 progress-bar-fill"
             style={{ width: `${pointsPercent}%` }}
           />
         </div>
@@ -90,13 +90,13 @@ export default function WeeklyStatsPanel({ stats, user }) {
         </div>
       </div>
 
-      {/* Gym & Lari Target Cards (Festive & Compact) */}
+      {/* Gym & Lari Target Cards (Clean Emerald completed theme) */}
       <div className="grid grid-cols-2 gap-2.5">
         {/* Gym Target */}
         <div className={`
           rounded-2xl border-2 p-3 transition-all duration-300
           ${gymTarget
-            ? "border-pink-300 bg-pink-50/30 shadow-sm"
+            ? "border-emerald-300 bg-emerald-50/20 shadow-sm"
             : "border-card-border bg-white"
           }
         `}>
@@ -109,14 +109,14 @@ export default function WeeklyStatsPanel({ stats, user }) {
           </div>
           <div className="h-1.5 rounded-full bg-slate-100 overflow-hidden mb-1.5">
             <div
-              className={`h-full rounded-full progress-bar-fill ${gymTarget ? "bg-gradient-to-r from-pink-400 to-rose-500" : "bg-purple"}`}
+              className={`h-full rounded-full progress-bar-fill ${gymTarget ? "bg-gradient-to-r from-teal-400 to-emerald-500" : "bg-purple"}`}
               style={{ width: `${gymPercent}%` }}
             />
           </div>
           <span className={`
             inline-flex items-center gap-1 text-[8px] font-extrabold px-1.5 py-0.5 rounded-md
             ${gymTarget
-              ? "bg-rose-50 text-rose-500 border border-rose-100"
+              ? "bg-emerald-50 text-emerald-600 border border-emerald-100"
               : "bg-amber/10 text-amber border border-amber/20"
             }
           `}>
@@ -128,7 +128,7 @@ export default function WeeklyStatsPanel({ stats, user }) {
         <div className={`
           rounded-2xl border-2 p-3 transition-all duration-300
           ${lariTarget
-            ? "border-pink-300 bg-pink-50/30 shadow-sm"
+            ? "border-emerald-300 bg-emerald-50/20 shadow-sm"
             : "border-card-border bg-white"
           }
         `}>
@@ -141,14 +141,14 @@ export default function WeeklyStatsPanel({ stats, user }) {
           </div>
           <div className="h-1.5 rounded-full bg-slate-100 overflow-hidden mb-1.5">
             <div
-              className={`h-full rounded-full progress-bar-fill ${lariTarget ? "bg-gradient-to-r from-pink-400 to-rose-500" : "bg-blue-500"}`}
+              className={`h-full rounded-full progress-bar-fill ${lariTarget ? "bg-gradient-to-r from-teal-400 to-emerald-500" : "bg-blue-500"}`}
               style={{ width: `${lariPercent}%` }}
             />
           </div>
           <span className={`
             inline-flex items-center gap-1 text-[8px] font-extrabold px-1.5 py-0.5 rounded-md
             ${lariTarget
-              ? "bg-rose-50 text-rose-500 border border-rose-100"
+              ? "bg-emerald-50 text-emerald-600 border border-emerald-100"
               : "bg-amber/10 text-amber border border-amber/20"
             }
           `}>

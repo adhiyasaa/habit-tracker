@@ -41,10 +41,10 @@ export default function ActivityList({ activities, onDelete, user }) {
   
   if (activities.length === 0) {
     return (
-      <div className="text-center py-8 bg-white/70 backdrop-blur-md rounded-2xl border-2 border-pink-100 p-4 shadow-sm animate-fadeIn">
+      <div className="text-center py-8 bg-white/70 backdrop-blur-md rounded-2xl border-2 border-slate-200 p-4 shadow-sm animate-fadeIn">
         <div className="text-4xl mb-2 animate-bounce">🌸</div>
         <p className="text-slate-700 font-extrabold text-xs">Belum ada aktivitas pekan ini 🥺</p>
-        <p className="text-slate-450 text-[9px] mt-0.5 font-semibold">Yuk catat kegiatan positi pertama kamu sekarang!</p>
+        <p className="text-slate-450 text-[9px] mt-0.5 font-semibold">Yuk catat kegiatan sehat pertama kamu sekarang!</p>
       </div>
     );
   }
@@ -129,7 +129,7 @@ export default function ActivityList({ activities, onDelete, user }) {
                     <div className="flex items-center gap-1.5 shrink-0 z-10">
                       {/* Enlarged Points Badge */}
                       <span className="text-xs font-black text-accent bg-accent-light px-2 py-0.5 rounded-lg border border-accent/20">
-                        +{activity.points || (activity.type === 'gym' || activity.type === 'lari' ? 10 : 5)}p
+                        +{activity.points || (activity.type === 'gym' || activity.type === 'lari' ? 10 : 3)}p
                       </span>
                       <button
                         onClick={() => {
