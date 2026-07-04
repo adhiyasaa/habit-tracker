@@ -42,22 +42,16 @@ export default function Home() {
     }
   }, []);
 
-  // Check unlock state on mount
+  // Set mount state and load stats
   useEffect(() => {
     setMounted(true);
-    const unlocked = localStorage.getItem("couple_tracker_unlocked");
-    if (unlocked === "true") {
-      setView("welcome");
-    } else {
-      setView("gate");
-    }
+    setView("gate");
     refreshStats();
   }, [refreshStats]);
 
   const handleUnlock = (e) => {
     e.preventDefault();
     if (passwordInput === "everythingship") {
-      localStorage.setItem("couple_tracker_unlocked", "true");
       setView("welcome");
       setPasswordInput("");
       setPasswordError(false);
@@ -69,7 +63,6 @@ export default function Home() {
 
   const handleLock = () => {
     if (window.confirm("Kunci jurnal kembali? 🔒")) {
-      localStorage.removeItem("couple_tracker_unlocked");
       setView("gate");
     }
   };
@@ -333,7 +326,7 @@ export default function Home() {
         </div>
       </div>
     );
-  }
+  }   
 
   // Habit Tracker Dashboard View (Festive & Compact with Enlarged Emojis)
   return (
@@ -555,7 +548,7 @@ export default function Home() {
                   value={affirmationText}
                   onChange={(e) => setAffirmationText(e.target.value)}
                   maxLength={200}
-                  placeholder={`cth: Semangat kuliahnya hari ini ${otherUser.nickname} sayang! Jangan lupa makan siang yaa... 🥰`}
+                  placeholder={`ex: Semangat beraktivitas hari ini ${otherUser.nickname} sayang! Jangan lupa makan yaa... 🥰`}
                   rows={3}
                   required
                   className="w-full px-3 py-2 rounded-xl border-2 border-pink-100 bg-white text-xs text-slate-800
