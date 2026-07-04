@@ -205,7 +205,7 @@ export default function Home() {
               Tsalysa and Dias's Daily Activity Journey 🔐
             </h1>
             <p className="text-[10px] text-slate-400 font-bold leading-relaxed max-w-xs mx-auto">
-              Enter Sceret Code
+              Enter Sceret Code!
             </p>
           </div>
 
@@ -484,19 +484,17 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Floating Circular Action Button: Send Love Affirmation (Amber/Orange Theme) */}
-      <div className="fixed bottom-[84px] right-4 z-40 sm:right-8 group flex flex-col items-center">
-        <span className="bg-slate-850 text-white text-[8px] font-extrabold px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity mb-1.5 uppercase tracking-wider shadow-md pointer-events-none whitespace-nowrap border border-slate-700">
-          Kirim Afirmasi Cinta 💌
+      {/* Floating Love Affirmation Trigger (Message Pop-up Pill Style) */}
+      <button
+        onClick={() => setShowAffirmationModal(true)}
+        className="fixed bottom-[84px] right-4 z-40 sm:right-8 bg-white border border-slate-200/80 rounded-full px-3 py-1.5 shadow-lg flex items-center gap-1.5 hover:scale-105 active:scale-95 transition-all cursor-pointer text-[10px] font-black text-slate-800 animate-pulseGlow"
+        title="Kirim Afirmasi Cinta"
+      >
+        <span className="w-5 h-5 rounded-full bg-orange-100 flex items-center justify-center text-[10px] shrink-0 text-orange-500 font-bold">
+          💬
         </span>
-        <button
-          onClick={() => setShowAffirmationModal(true)}
-          className="w-12 h-12 rounded-full bg-gradient-to-tr from-orange-500 to-amber-500 text-white flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all cursor-pointer border-2 border-white/80 animate-pulse"
-          title="Send Love Affirmation Today"
-        >
-          <Heart size={20} className="fill-white" />
-        </button>
-      </div>
+        <span>Kirim Afirmasi Cinta 💌</span>
+      </button>
 
       {/* Floating Action Button: Add Activity (Teal/Blue active theme) */}
       <div className="fixed bottom-4 left-0 right-0 z-40 flex justify-center">
@@ -534,7 +532,7 @@ export default function Home() {
             <div className="px-5 py-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white flex items-center justify-between">
               <div>
                 <h3 className="font-extrabold text-xs uppercase tracking-wider flex items-center gap-1">
-                  <span>Kirim Afirmasi Cinta</span> 
+                  <span>Sent Affirmation</span> 
                   <span className="animate-bounce">💖</span>
                 </h3>
                 <p className="text-[9px] text-white/90 leading-none mt-0.5">Tulis pesan penyemangat buat {otherUser.name}</p>
@@ -550,12 +548,12 @@ export default function Home() {
             {/* Form */}
             <form onSubmit={handleSubmitAffirmation} className="p-4 space-y-4">
               <div className="space-y-1">
-                <label className="block text-[9px] font-extrabold text-slate-450 uppercase tracking-wider">Pesan Afirmasi</label>
+                <label className="block text-[9px] font-extrabold text-slate-450 uppercase tracking-wider">Affirmation Message</label>
                 <textarea
                   value={affirmationText}
                   onChange={(e) => setAffirmationText(e.target.value)}
                   maxLength={200}
-                  placeholder={`cth: Semangat kuliahnya hari ini ${otherUser.nickname} sayang! Jangan lupa makan siang yaa... 🥰`}
+                  placeholder={`cth: Semangat olahraganya hari ini ${otherUser.nickname} sayang! Jangan lupa makan siang yaa... 🥰`}
                   rows={3}
                   required
                   className="w-full px-3 py-2 rounded-xl border-2 border-amber-100 bg-white text-xs text-slate-800

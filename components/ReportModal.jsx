@@ -31,7 +31,7 @@ export default function ReportModal({ user, onClose, onSubmit }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!selectedType) {
-      alert(`Pilih jenis kegiatannya dulu ya, ${nickCap}! 🥺`);
+      alert(`Pilih jenis kegiatannya dulu ya! 🥺`);
       return;
     }
 
@@ -86,7 +86,7 @@ export default function ReportModal({ user, onClose, onSubmit }) {
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center modal-overlay animate-fadeIn" onClick={onClose}>
       <div
-        className="w-full sm:max-w-md bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl animate-slideUp max-h-[90vh] overflow-y-auto border border-slate-200"
+        className="w-full sm:max-w-md bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl animate-slideUp max-h-[90vh] overflow-y-auto border border-pink-100"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header (Festive) */}
@@ -97,11 +97,11 @@ export default function ReportModal({ user, onClose, onSubmit }) {
           <div className="flex items-center justify-between relative z-10">
             <div>
               <h2 className="text-base font-black tracking-tight flex items-center gap-1">
-                <span>Catat Kegiatan {nickCap}</span> 
+                <span>Catat Kegiatan </span> 
                 <span className="animate-bounce">📝</span>
               </h2>
               <p className="text-white/95 text-[10px] font-extrabold mt-1 flex items-center gap-1 bg-black/15 px-2.5 py-0.5 rounded-full w-fit">
-                {user.emoji} Dapatkan +{selectedType === "gym" || selectedType === "lari" ? 10 : 3} Love Score! 💕
+                {user.emoji} Dapatkan +{selectedType === "gym" || selectedType === "lari" ? 10 : 3} Love Score! 
               </p>
             </div>
             <button
@@ -216,8 +216,8 @@ export default function ReportModal({ user, onClose, onSubmit }) {
                       ? "Renang, badminton, yoga..."
                       : "Masak bareng, membaca, beres-beres..."
                   }
-                  className="w-full px-3 py-2 rounded-xl border-2 border-slate-200 bg-white text-xs text-slate-800
-                    placeholder:text-slate-400 focus:outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-100
+                  className="w-full px-3 py-2 rounded-xl border-2 border-pink-100 bg-white text-xs text-slate-800
+                    placeholder:text-slate-400 focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-50
                     transition-all font-bold shadow-inner"
                   required
                 />
@@ -235,8 +235,8 @@ export default function ReportModal({ user, onClose, onSubmit }) {
                 value={date}
                 max={new Date().toISOString().split("T")[0]}
                 onChange={(e) => setDate(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl border-2 border-slate-200 bg-white text-xs text-slate-800
-                  focus:outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-100 transition-all font-bold shadow-inner"
+                className="w-full px-3 py-2 rounded-xl border-2 border-pink-100 bg-white text-xs text-slate-800
+                  focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-50 transition-all font-bold shadow-inner"
                 required
               />
             </div>
@@ -305,7 +305,7 @@ export default function ReportModal({ user, onClose, onSubmit }) {
             <div className="space-y-1">
               <label className="flex items-center gap-1.5 text-[10px] font-extrabold text-slate-700 uppercase tracking-wider">
                 <FileText size={13} className="text-slate-405" />
-                Catatan / Pesan buat {nickCap} (opsional) 💬
+                Catatan / Pesan (opsional) 💬
               </label>
               <textarea
                 value={notes}
@@ -313,8 +313,8 @@ export default function ReportModal({ user, onClose, onSubmit }) {
                 maxLength={200}
                 placeholder={`Tulis pesan atau catatan untuk ${nick}...`}
                 rows={2}
-                className="w-full px-3 py-2 rounded-xl border-2 border-slate-200 bg-white text-xs text-slate-800
-                  placeholder:text-slate-400 focus:outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-100
+                className="w-full px-3 py-2 rounded-xl border-2 border-pink-100 bg-white text-xs text-slate-800
+                  placeholder:text-slate-400 focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-50
                   transition-all resize-none font-bold shadow-inner"
               />
             </div>
