@@ -31,7 +31,7 @@ export default function ReportModal({ user, onClose, onSubmit }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!selectedType) {
-      alert(`Pilih jenis kegiatannya dulu ya, ${nickCap}!`);
+      alert(`Pilih jenis kegiatannya dulu ya, ${nickCap}! 🥺`);
       return;
     }
 
@@ -86,24 +86,27 @@ export default function ReportModal({ user, onClose, onSubmit }) {
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center modal-overlay animate-fadeIn" onClick={onClose}>
       <div
-        className="w-full sm:max-w-md bg-white rounded-t-3xl sm:rounded-3xl shadow-xl animate-slideUp max-h-[90vh] overflow-y-auto border border-white/20"
+        className="w-full sm:max-w-md bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl animate-slideUp max-h-[90vh] overflow-y-auto border border-pink-100"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
+        {/* Header (Festive) */}
         <div className={`px-6 pt-6 pb-5 bg-gradient-to-r ${user.color} rounded-t-3xl sm:rounded-t-3xl text-white relative overflow-hidden`}>
-          <div className="absolute right-0 top-0 opacity-10 translate-x-4 -translate-y-4 text-9xl pointer-events-none">
-            {user.emoji}
+          <div className="absolute right-0 top-0 opacity-15 translate-x-4 -translate-y-4 text-9xl pointer-events-none select-none">
+            💖
           </div>
           <div className="flex items-center justify-between relative z-10">
             <div>
-              <h2 className="text-lg font-bold tracking-tight">Catat Kegiatan {nickCap}</h2>
-              <p className="text-white/95 text-xs font-semibold mt-1 flex items-center gap-1 bg-black/10 px-2.5 py-0.5 rounded-full w-fit">
-                {user.emoji} +{selectedType === "apresiasi" ? 15 : POINTS_PER_ACTIVITY} poin untuk {nickCap}
+              <h2 className="text-base font-black tracking-tight flex items-center gap-1">
+                <span>Catat Kegiatan {nickCap}</span> 
+                <span className="animate-bounce">📝</span>
+              </h2>
+              <p className="text-white/95 text-[10px] font-extrabold mt-1 flex items-center gap-1 bg-black/15 px-2.5 py-0.5 rounded-full w-fit">
+                {user.emoji} Dapatkan +{selectedType === "gym" || selectedType === "lari" ? 10 : 5} poin cinta! 💕
               </p>
             </div>
             <button
               onClick={onClose}
-              className="p-2 rounded-full bg-white/20 hover:bg-white/30 text-white transition-all"
+              className="p-2 rounded-full bg-white/20 hover:bg-white/35 text-white transition-all hover:scale-105 active:scale-95"
             >
               <X size={16} />
             </button>
@@ -113,15 +116,16 @@ export default function ReportModal({ user, onClose, onSubmit }) {
         {success ? (
           <div className="p-8 text-center animate-scaleIn">
             <div className="text-5xl mb-3 animate-bounce">🎉</div>
-            <p className="text-base font-bold text-accent">Kegiatan Berhasil Dicatat!</p>
-            <p className="text-xs text-muted mt-1">+{selectedType === "apresiasi" ? 15 : POINTS_PER_ACTIVITY} poin berhasil ditambahkan.</p>
+            <p className="text-base font-extrabold text-accent">Hore! Berhasil Dicatat! 💖</p>
+            <p className="text-xs text-muted mt-1">Poin langsung masuk untuk {nickCap}!</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="p-5 space-y-4">
             {/* Activity Type Selection */}
             <div className="space-y-2">
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider">
-                Jenis Kegiatan
+              <label className="block text-[10px] font-extrabold text-slate-700 uppercase tracking-wider flex items-center gap-1">
+                <span>Pilih jenis kegiatan yaa</span>
+                <span>👇</span>
               </label>
               <div className="grid grid-cols-2 gap-2">
                 {ACTIVITY_TYPES.map((activity) => {
@@ -141,25 +145,25 @@ export default function ReportModal({ user, onClose, onSubmit }) {
                         ${
                           isSelected
                             ? activity.color === "purple"
-                              ? "border-purple bg-purple-light/20 shadow-sm"
+                              ? "border-purple bg-purple-light/20 shadow-md scale-[1.01]"
                               : activity.color === "accent"
-                              ? "border-accent bg-accent-light/20 shadow-sm"
+                              ? "border-accent bg-accent-light/20 shadow-md scale-[1.01]"
                               : activity.color === "rose"
-                              ? "border-rose-500 bg-rose-50/50 shadow-sm"
+                              ? "border-rose-500 bg-rose-50/50 shadow-md scale-[1.01]"
                               : activity.color === "indigo"
-                              ? "border-indigo-500 bg-indigo-50/50 shadow-sm"
+                              ? "border-indigo-500 bg-indigo-50/50 shadow-md scale-[1.01]"
                               : activity.color === "blue"
-                              ? "border-blue-500 bg-blue-50/50 shadow-sm"
+                              ? "border-blue-500 bg-blue-50/50 shadow-md scale-[1.01]"
                               : activity.color === "amber"
-                              ? "border-amber bg-amber-light/20 shadow-sm"
-                              : "border-slate-400 bg-slate-155 shadow-sm"
-                            : "border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50"
+                              ? "border-amber bg-amber-light/20 shadow-md scale-[1.01]"
+                              : "border-slate-400 bg-slate-100 shadow-md scale-[1.01]"
+                            : "border-slate-200 bg-white hover:border-slate-350 hover:bg-slate-50"
                         }
                       `}
                     >
                       {Icon && (
                         <Icon
-                          size={22}
+                          size={26}
                           className={
                             isSelected
                               ? activity.color === "purple"
@@ -174,7 +178,7 @@ export default function ReportModal({ user, onClose, onSubmit }) {
                                 ? "text-blue-500"
                                 : activity.color === "amber"
                                 ? "text-amber"
-                                : "text-slate-650"
+                                : "text-slate-655"
                               : "text-slate-400"
                           }
                         />
@@ -183,7 +187,7 @@ export default function ReportModal({ user, onClose, onSubmit }) {
                         {activity.label}
                       </span>
                       {isSelected && (
-                        <div className="absolute top-1.5 right-1.5 w-3.5 h-3.5 rounded-full bg-accent flex items-center justify-center">
+                        <div className="absolute top-1.5 right-1.5 w-3.5 h-3.5 rounded-full bg-accent flex items-center justify-center animate-scaleIn">
                           <svg width="8" height="8" viewBox="0 0 12 12" fill="none">
                             <path d="M2 6L5 9L10 3" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
@@ -198,8 +202,9 @@ export default function ReportModal({ user, onClose, onSubmit }) {
             {/* Custom Name Input (for olahraga_lain and kegiatan_lain) */}
             {selectedActivity?.custom && (
               <div className="animate-fadeIn space-y-1">
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider">
-                  Detail {selectedActivity.label}
+                <label className="block text-[10px] font-extrabold text-slate-700 uppercase tracking-wider flex items-center gap-1">
+                  <span>Nama kegiatannya apa nih?</span>
+                  <span>🤔</span>
                 </label>
                 <input
                   type="text"
@@ -209,11 +214,11 @@ export default function ReportModal({ user, onClose, onSubmit }) {
                   placeholder={
                     selectedType === "olahraga_lain"
                       ? "Renang, badminton, yoga..."
-                      : "Masak, membaca, beres-beres..."
+                      : "Masak bareng, membaca, beres-beres..."
                   }
-                  className="w-full px-3 py-2 rounded-xl border-2 border-card-border bg-white text-xs text-slate-800
-                    placeholder:text-slate-400 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/10
-                    transition-all font-semibold"
+                  className="w-full px-3 py-2 rounded-xl border-2 border-pink-100 bg-white text-xs text-slate-800
+                    placeholder:text-slate-400 focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-50
+                    transition-all font-bold shadow-inner"
                   required
                 />
               </div>
@@ -221,25 +226,25 @@ export default function ReportModal({ user, onClose, onSubmit }) {
 
             {/* Custom Date Picker */}
             <div className="space-y-1 animate-fadeIn">
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
-                <Calendar size={13} className="text-slate-400" />
-                Tanggal Kegiatan
+              <label className="block text-[10px] font-extrabold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+                <Calendar size={13} className="text-slate-405" />
+                Tanggal Kegiatan 📅
               </label>
               <input
                 type="date"
                 value={date}
                 max={new Date().toISOString().split("T")[0]}
                 onChange={(e) => setDate(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl border-2 border-card-border bg-white text-xs text-slate-800
-                  focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/10 transition-all font-semibold"
+                className="w-full px-3 py-2 rounded-xl border-2 border-pink-100 bg-white text-xs text-slate-800
+                  focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-50 transition-all font-bold shadow-inner"
                 required
               />
             </div>
 
             {/* Mood Selector */}
             <div className="space-y-1 animate-fadeIn">
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider">
-                Bagaimana perasaan kamu?
+              <label className="block text-[10px] font-extrabold text-slate-700 uppercase tracking-wider">
+                Gimana rasanya pas ngelakuin? 🥰
               </label>
               <div className="grid grid-cols-2 gap-2">
                 {MOODS.map((m) => {
@@ -253,8 +258,8 @@ export default function ReportModal({ user, onClose, onSubmit }) {
                         px-3 py-2 rounded-xl border text-[11px] font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer
                         ${
                           isSelected
-                            ? `${m.color} border-current scale-[1.01] shadow-sm`
-                            : "border-slate-200 bg-white text-slate-500 hover:border-slate-300"
+                            ? `${m.color} border-current scale-[1.01] shadow-md font-black`
+                            : "border-slate-200 bg-white text-slate-550 hover:border-slate-350"
                         }
                       `}
                     >
@@ -268,8 +273,8 @@ export default function ReportModal({ user, onClose, onSubmit }) {
 
             {/* Difficulty Selector */}
             <div className="space-y-1 animate-fadeIn">
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider">
-                Tingkat Usaha
+              <label className="block text-[10px] font-extrabold text-slate-700 uppercase tracking-wider">
+                Tingkat Usaha 💪
               </label>
               <div className="grid grid-cols-3 gap-2">
                 {DIFFICULTIES.map((d) => {
@@ -283,8 +288,8 @@ export default function ReportModal({ user, onClose, onSubmit }) {
                         px-2 py-2 rounded-xl border text-[10px] font-bold flex flex-col items-center justify-center gap-1 transition-all cursor-pointer
                         ${
                           isSelected
-                            ? `${d.color} border-current scale-[1.01] shadow-sm font-extrabold`
-                            : "border-slate-200 bg-white text-slate-500 hover:border-slate-300"
+                            ? `${d.color} border-current scale-[1.01] shadow-md font-black`
+                            : "border-slate-200 bg-white text-slate-550 hover:border-slate-350"
                         }
                       `}
                     >
@@ -298,19 +303,19 @@ export default function ReportModal({ user, onClose, onSubmit }) {
 
             {/* Notes */}
             <div className="space-y-1">
-              <label className="flex items-center gap-1.5 text-xs font-bold text-slate-700 uppercase tracking-wider">
-                <FileText size={13} className="text-slate-400" />
-                Catatan (opsional)
+              <label className="flex items-center gap-1.5 text-[10px] font-extrabold text-slate-700 uppercase tracking-wider">
+                <FileText size={13} className="text-slate-405" />
+                Catatan / Pesan buat {nickCap} (opsional) 💬
               </label>
               <textarea
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 maxLength={200}
-                placeholder="Tulis catatan singkat jika ada..."
+                placeholder={`Tulis pesan atau catatan untuk ${nick}...`}
                 rows={2}
-                className="w-full px-3 py-2 rounded-xl border-2 border-card-border bg-white text-xs text-slate-800
-                  placeholder:text-slate-400 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/10
-                  transition-all resize-none"
+                className="w-full px-3 py-2 rounded-xl border-2 border-pink-100 bg-white text-xs text-slate-800
+                  placeholder:text-slate-400 focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-50
+                  transition-all resize-none font-bold shadow-inner"
               />
             </div>
 
@@ -319,13 +324,12 @@ export default function ReportModal({ user, onClose, onSubmit }) {
               type="submit"
               disabled={!selectedType || (selectedActivity?.custom && !customName.trim()) || submitting}
               className={`
-                w-full py-3 rounded-2xl font-bold text-white text-xs cursor-pointer
-                flex items-center justify-center gap-2
-                transition-all duration-200
+                w-full py-2.5 rounded-xl font-extrabold text-white text-xs cursor-pointer
+                flex items-center justify-center gap-2 transition-all duration-200
                 ${
                   !selectedType || (selectedActivity?.custom && !customName.trim())
                     ? "bg-slate-300 cursor-not-allowed"
-                    : `bg-indigo-500 hover:bg-indigo-600 hover:shadow-md active:scale-[0.98]`
+                    : `bg-gradient-to-r ${user.color} hover:shadow-md hover:scale-[1.005] active:scale-[0.99]`
                 }
               `}
             >
@@ -333,8 +337,8 @@ export default function ReportModal({ user, onClose, onSubmit }) {
                 <Loader2 size={14} className="animate-spin" />
               ) : (
                 <>
-                  <Send size={14} />
-                  Simpan Kegiatan
+                  <Send size={12} />
+                  Simpan Kegiatan 💌
                 </>
               )}
             </button>
